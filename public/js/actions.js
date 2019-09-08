@@ -164,8 +164,8 @@ function renderFull(){
                             ${fail}
                         </div>
                         <div><a href="#" class="add-fail" id="add-fail-${id}">Добавить провал</a></div>
-                        <button type="submit" class="btn btn-primary">Сохранить</button>
-                        <button type="submit" id="delete-form-tmp-${id}" class="btn btn-primary delete-form-tmp">Удалить</button>
+                        <button type="submit" class="btn btn-outline-primary">Сохранить</button>
+                        <button type="submit" id="delete-form-tmp-${id}" class="btn btn-outline-primary delete-form-tmp">Удалить</button>
                     </div>
             </form>
         </div>

@@ -90,9 +90,9 @@ function renderFull(){
                 <a href="#" id="add-action-${id}" class="add-action">Добавить действие</a>
             </form>
             <div class="button-box d-flex">
-                <button form ="character-${id}" type="submit" class="btn btn-primary mr-2">Сохранить</button>
+                <button form ="character-${id}" type="submit" class="btn btn-outline-success mr-2">Сохранить</button>
                 <span class="ml-2">
-                    <button type="submit" class="btn btn-primary delete-new">Удалить</button>
+                    <button type="submit" class="btn btn-outline-danger delete-new">Удалить</button>
                 </span>
             </div>
         </div>
