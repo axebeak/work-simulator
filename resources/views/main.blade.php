@@ -2,11 +2,25 @@
 
 @section('content')
 <div class="container">
+    <div class="row mt-3">
+        <div class="col d-flex justify-content-center">
+            <button class="btn btn-outline-success take-action">Совершить действие</button>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="automatic" checked>
+                <label for="automatic" class="custom-control-label">Совершать действия автоматически</label>
+            </div>
+        </div>
+    </div>
     <div class="row mt-5 mb-5 d-flex justify-content-center">
     @foreach ($characters as $character)
         <div class="info-container col ml-2 mr-2" id="{{ $character->id }}">
             <h3 class="text-center">{{ $character->name }}</h3>
             <h5 class="text-center">{{ $character->job_title }}</h5>
+            @if (is_numeric($character->work))
+                <div class="alert alert-light text-center alert alert-dark" >Состояние Работы: <span id="work-{{ $character->id }}">{{ $character->work }}</span></div>
+            @endif
             @if (!empty($character->mood))
                 @foreach ($moods as $mood)
                 
@@ -39,70 +53,7 @@ var moods = {}
     moods['{{ $mood->id }}'] = '{{ $mood->mood_name }}'
 @endforeach
 
-$(document).ready(function() {
-  setTimeout(makeAjaxCall, 1000);
-});
-
-function actionMessage(name, action){
-    return name + ' совершает действие "' + action + '".<br>'
-}
-function reactionMessage(name, action){
-    return name + ' реагирует и совершает действие "'+ action +'".<br>'
-}
-
-function successMessage(success){
-    return success ? 'Успех!<br>' : 'Провал! <br>' 
-}
-
-function paramChangeMessage(param, success, name){
-    var parameter = ''
-    var result = success ? 'повышается! <br>' : 'понижается... <br>'
-    if (param === 'mood'){
-        parameter = 'Настроение'
-    } else if (param === 'watch_counter'){
-        parameter = 'Счетчик слежения'
-    } else if (param === 'work'){
-        parameter = 'Работа'
-    } else {
-        parameter = param
-    }
-    
-    return parameter + ' ' + name + ' ' + result 
-}
-
-function makeAjaxCall(isAjax = true){
-    $.ajax( "/run" )
-        .done(function(data) {
-            for (var item in data){
-                let id = data[item].id
-                let name = $('#' + id + ' > h3').text()
-                if (!data[item].isReaction){
-                    $('#status-' + id).append(actionMessage(name, data[item].action))
-                } else {
-                    $('#status-' + id).append(reactionMessage(name, data[item].action))
-                }
-                if (data[item].success){
-                    $('#status-' + id).append(successMessage(true))
-                } else {
-                    $('#status-' + id).append(successMessage(false))
-                }
-                for (var i in data[item]['params']){
-                        $('#status-' + id).append(paramChangeMessage(i, data[item].success, name))
-                        if (i === 'mood'){
-                            $('#mood-' + id).html('').append(moods[data[item]['params'][i]])
-                        }
-                        if (i === 'watch_counter'){
-                            $('#counter-' + id).html('').append(data[item]['params'].watch_counter)
-                        }
-                }
-            }
-            if (!isAjax){
-                setTimeout(makeAjaxCall, 10000)
-            }
-        })
-}
- 
-
-
 </script>
+
+<script src="/js/main.js"></script>
 @endsection

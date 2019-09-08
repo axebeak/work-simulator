@@ -83,7 +83,12 @@
 	        overflow: auto;
 	        font-size: 12px;
         }
-        nav a
+        .arrows {
+        	font-size: 9px;
+        	position: relative;
+        	right: 23px;
+        	bottom: 2px;
+        }
         </style>
         
         

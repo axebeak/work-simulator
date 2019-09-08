@@ -4,7 +4,7 @@
 
 @section('content')
     <header class="row">
-        <button class="btn btn-success add-new-char">Создать нового</button>
+        <button class="btn btn-outline-primary add-new-char mt-3 ml-4">Создать нового</button>
     </header>
     <div class="row flex-nowrap main-cont overflow-auto mt-4">
     @foreach ($characters as $character)
@@ -59,13 +59,13 @@
                 <a href="#" id="add-action-{{ $character->id }}" class="add-action">Добавить действие</a>
                     
             </form>
-            <div class="button-box d-flex">
-                <button form ="character-{{ $character->id }}" type="submit" class="btn btn-primary mr-2">Сохранить</button>
+            <div class="button-box d-flex ml-2">
+                <button form ="character-{{ $character->id }}" type="submit" class="btn btn-outline-success mr-2">Сохранить</button>
                 <span class="ml-2">
                     <form method="POST" action="/characters/{{ $character->id }}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-primary">Удалить</button>
+                        <button type="submit" class="btn btn-outline-danger">Удалить</button>
                     </form>
                 </span>
             </div>

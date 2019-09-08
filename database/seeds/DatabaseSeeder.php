@@ -88,8 +88,8 @@ class DatabaseSeeder extends Seeder
                 'towards' => NULL,
                 'watching' => NULL,
                 'consequence' => json_encode([
-                    'success' => ['work' => true],
-                    'fail' => ['work' => false]
+                    'success' => ['work' => 1],
+                    'fail' => ['work' => 0]
                 ])
             ],
             'Оценка' => [
