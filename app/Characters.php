@@ -130,7 +130,7 @@ class Characters extends Model
             $result = 0;
         }
         if (!$isReaction){
-            $result = $status ? $available[1] : $available[0];
+            $result = $val;
         } else {
             $result = $result + $val;
         }

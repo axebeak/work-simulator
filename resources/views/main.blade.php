@@ -29,7 +29,7 @@
                     @endif
                 @endforeach
             @endif
-            @if (!empty($character->watch_counter))
+            @if (!empty($character->watch_counter) || is_numeric($character->watch_counter))
             <div class="counter-container alert alert-dark text-center">
                 <div>Счетчик слежения: <span class="counter" id="counter-{{ $character->id }}">{{ $character->watch_counter }}</span>
                 </div>

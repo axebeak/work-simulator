@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'Юный Программист' => [
                 'job_title' => 'Программист',
                 'mood' => NULL,
-                'work' => NULL,
+                'work' => 1,
                 'watch_counter' => NULL,
                 'actions' => json_encode(['Работа'], JSON_UNESCAPED_UNICODE)
             ],
