@@ -102,7 +102,7 @@ class DatabaseSeeder extends Seeder
             ],
             'Слежение за выговорами' => [
                 'towards' => 'T-70',
-                'watching' => json_encode(['mood' => 1]),
+                'watching' => json_encode(['mood' => 4]),
                 'consequence' => json_encode([
                     'success' => ['watch_counter' => 1],
                     'fail'=> false
@@ -110,7 +110,7 @@ class DatabaseSeeder extends Seeder
             ],
             'Слежение за похвалой' => [
                 'towards' => 'T-70',
-                'watching' => json_encode(['mood' => 4]),
+                'watching' => json_encode(['mood' => 1]),
                 'consequence' => json_encode([
                     'success' => ['watch_counter' => 1],
                     'fail'=> false
