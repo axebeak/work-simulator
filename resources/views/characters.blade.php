@@ -59,7 +59,7 @@
                 <a href="#" id="add-action-{{ $character->id }}" class="add-action">Добавить действие</a>
                     
             </form>
-            <div class="button-box d-flex ml-2">
+            <div class="button-box bb-chars d-flex ml-2">
                 <button form ="character-{{ $character->id }}" type="submit" class="btn btn-outline-success mr-2">Сохранить</button>
                 <span class="ml-2">
                     <form method="POST" action="/characters/{{ $character->id }}">

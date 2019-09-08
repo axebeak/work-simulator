@@ -54,8 +54,12 @@ input[type=text] {
 }
 .button-box {
     position: relative;
-    left: 10px;
 }
+.bb-chars {
+    left: 10px;
+    bottom: 28px;
+}
+
 .status-log {
     width: 100%;
     height: 200px;
